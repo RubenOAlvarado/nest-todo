@@ -30,6 +30,7 @@ export class NoteService{
     }
 
     async deleteANote(_id):Promise<Note>{
-        
+        const note = await this.noteModel.findByIdAndRemove(_id);
+        return note;
     }
 }
