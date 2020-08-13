@@ -9,4 +9,5 @@ export const NoteSchema = new Schema({
         type:String,
         enum:['Personal', 'Travel', 'Life', 'Work'],
     },
+    createdAt: { type: Date, default: Date.now }
 });
