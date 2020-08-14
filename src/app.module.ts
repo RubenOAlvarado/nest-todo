@@ -3,6 +3,8 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { MongooseModule } from '@nestjs/mongoose';
 import { NoteModule } from './modules/note.module';
+import { AuthModule } from './auth/auth.module';
+import { UsersModule } from './users/users.module';
 import 'dotenv/config';
 
 @Module({
@@ -13,7 +15,9 @@ import 'dotenv/config';
       useCreateIndex: true,
       useFindAndModify: true
     }),
-    NoteModule
+    NoteModule,
+    AuthModule,
+    UsersModule
   ],
   controllers: [AppController],
   providers: [AppService],
