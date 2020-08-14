@@ -1,6 +1,6 @@
 ## Description
 
-#An NestJs API app.
+A NestJs API app.
 
 [Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
 
@@ -32,6 +32,10 @@ $ yarn test
 # e2e tests
 $ yarn test:e2e
 
-##Documentation
+```
 
-# localhost:3000/api
+## Documentation
+
+```bash
+
+localhost:3000/api
