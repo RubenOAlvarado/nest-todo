@@ -6,10 +6,4 @@ export class CreateUserDTO{
 
     @ApiProperty()
     password: string;
-
-    @ApiProperty()
-    email: string;
-
-    @ApiProperty()
-    role: string;
 }

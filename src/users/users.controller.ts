@@ -1,4 +1,4 @@
-import { Controller, Res, HttpStatus, Post, Get, Param, Body, Patch, Delete } from '@nestjs/common';
+import { Controller, Res, HttpStatus, Post, Get, Param, Body, Delete } from '@nestjs/common';
 import { UsersService } from './users.service';
 import { CreateUserDTO } from '../dtos/user.dto';
 import { ApiResponse, ApiTags } from "@nestjs/swagger";
@@ -27,15 +27,6 @@ export class UsersController{
             status: 200,
             data: users
         });
-    }
-
-    @ApiResponse({status:200})
-    @Patch('update/:id')
-    async updateUser(@Res() res, @Body() createUserDTO: CreateUserDTO, @Param('id') _id: string){
-        const user = await this.usersService.updateUser(_id, createUserDTO);
-        if(!user) return res.status(HttpStatus.NOT_FOUND).json({status:404, error: 'Not Found!'});
-
-        return res.status(HttpStatus.OK).json({status:200, message: 'Successful', user});
     }
 
     @ApiResponse({status:200})
