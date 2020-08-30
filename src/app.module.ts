@@ -5,6 +5,7 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { NoteModule } from './modules/note.module';
 import { AuthModule } from './auth/auth.module';
 import { UsersModule } from './users/users.module';
+import { ProfileModule } from './profile/profile.module';
 import 'dotenv/config';
 
 @Module({
@@ -17,7 +18,8 @@ import 'dotenv/config';
     }),
     NoteModule,
     AuthModule,
-    UsersModule
+    UsersModule,
+    ProfileModule
   ],
   controllers: [AppController],
   providers: [AppService],
