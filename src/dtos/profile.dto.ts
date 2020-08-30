@@ -15,4 +15,7 @@ export class CreateProfileDTO{
 
     @ApiProperty()
     age: number;
+
+    @ApiProperty()
+    user: string
 }

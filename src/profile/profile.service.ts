@@ -14,12 +14,12 @@ export class ProfileService {
     }
 
     async getProfiles():Promise<Profile>{
-        const profiles = await this.profileModel.find().exec();
+        const profiles = await this.profileModel.find().populate('user').exec();
         return profiles;
     }
 
     async getAProfile(profileId):Promise<Profile>{
-        const profile = await this.profileModel.findById(profileId).exec();
+        const profile = await this.profileModel.findById(profileId).populate('user').exec();
         return profile;
     }
 

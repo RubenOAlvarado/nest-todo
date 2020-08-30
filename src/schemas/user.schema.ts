@@ -2,12 +2,8 @@ import * as mongoose from 'mongoose';
 const {Schema} = mongoose;
 
 export const UserSchema = new Schema({
-    username: String,
+    username: {type: String, unique:true},
     password: String,
-    email:{
-        type: String,
-        unique: true
-    },
     createdAt: { type: Date, default: Date.now },
     role:{
         type:String,

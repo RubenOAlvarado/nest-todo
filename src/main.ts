@@ -4,6 +4,7 @@ import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 import * as dotenv from 'dotenv';
 import { NoteModule } from 'src/modules/note.module';
 import { UsersModule } from 'src/users/users.module';
+import { ProfileModule } from 'src/profile/profile.module';
 
 dotenv.config();
 
@@ -21,7 +22,7 @@ async function bootstrap() {
                       .build();
 
   const appDocument = SwaggerModule.createDocument(app, options, {
-    include: [NoteModule, UsersModule]
+    include: [NoteModule, UsersModule, ProfileModule]
   });
 
   SwaggerModule.setup('api', app, appDocument);
