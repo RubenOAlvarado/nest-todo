@@ -6,6 +6,7 @@ import { NoteModule } from './modules/note.module';
 import { AuthModule } from './auth/auth.module';
 import { UsersModule } from './users/users.module';
 import { ProfileModule } from './profile/profile.module';
+import { PhotosModule } from './photos/photos.module';
 import 'dotenv/config';
 
 @Module({
@@ -19,7 +20,8 @@ import 'dotenv/config';
     NoteModule,
     AuthModule,
     UsersModule,
-    ProfileModule
+    ProfileModule,
+    PhotosModule
   ],
   controllers: [AppController],
   providers: [AppService],

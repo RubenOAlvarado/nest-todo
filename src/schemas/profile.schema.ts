@@ -6,7 +6,6 @@ export const ProfileSchema = new Schema({
     lastName: {type: String, required: true},
     secondLastName: String,
     birthDate: {type:Date, min: '1940-01-01'},
-    photo: String,
     age: {type: Number, required:true, min: 18, max: 90},
     user: {type: Schema.Types.ObjectId, ref: 'User', required: true}
 });

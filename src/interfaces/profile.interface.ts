@@ -5,7 +5,6 @@ export interface Profile extends Document{
     readonly lastName: string,
     readonly secondLastname: string,
     readonly birthDate: Date,
-    readonly photo: string,
     readonly age: number,
     readonly user: string,
 }
