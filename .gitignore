@@ -5,6 +5,9 @@
 #env variables
 .env
 
+#photo upload
+/uploads
+
 # Logs
 logs
 *.log
