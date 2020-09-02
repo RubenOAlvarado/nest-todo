@@ -19,7 +19,7 @@ import 'dotenv/config';
       useFindAndModify: true
     }),
     MulterModule.register({
-      dest: './uploads'
+      dest: process.env.FILE_DIR
     }),
     NoteModule,
     AuthModule,
