@@ -10,7 +10,8 @@ export class UsersService {
 
     async createUser(createUserDTO: CreateUserDTO): Promise<User>{
         const {username, password} = createUserDTO;
-        const user = await this.userModel.register({username}, password);
+        const newUser = await this.userModel({username});
+        const user = await this.userModel.register(newUser, password);
         return user;
     }
 
@@ -25,8 +26,8 @@ export class UsersService {
     }
 
     async authenticateUser(username:string, password:string): Promise<User>{
-        const authUser = await this.userModel.authenticate(username, password);
-        return authUser;
+        const {user} = await this.userModel.authenticate()(username, password);
+        return user;
     }
 
     async deleteUser(_id):Promise<User>{

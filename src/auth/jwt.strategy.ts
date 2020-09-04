@@ -7,7 +7,6 @@ import 'dotenv/config';
 export class JwtStrategy extends PassportStrategy(Strategy){
     constructor(){
         super({
-            passReqToCallback: true,
             jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
             ignoreExpiration: false,
             secretOrKey: process.env.JWT_SECRET
