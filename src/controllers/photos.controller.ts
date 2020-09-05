@@ -1,6 +1,6 @@
 import { Controller, Res, HttpStatus, Post, UseInterceptors, 
     UploadedFile,  UseGuards, Request } from '@nestjs/common';
-import { FileInterceptor, FilesInterceptor } from '@nestjs/platform-express';
+import { FileInterceptor } from '@nestjs/platform-express';
 import { diskStorage } from 'multer';
 import { ApiResponse, ApiTags } from "@nestjs/swagger";
 import { PhotosService } from '../photos/photos.service';
@@ -26,15 +26,7 @@ export class PhotosController{
         fileFilter: imageFileFilter,
     }))
     async uploadedFile(@UploadedFile() file, @Request() req, @Res() res){
-        console.log(req.user);
-        const user = req.user._id;
-        const filename = file.path;
-        const createPhotoDTO = new CreatePhotoDTO();
-        createPhotoDTO.profilePic = filename;
-        createPhotoDTO.hasProfilePic = true;
-        createPhotoDTO.user = user;
-        const photo = await this.photosService.saveFile(createPhotoDTO);
-
+        const photo = await this.photosService.saveFile(req.user._id, file.path);
         return res.status(HttpStatus.CREATED).json({
             status:201,
             message: 'Photo uploaded',

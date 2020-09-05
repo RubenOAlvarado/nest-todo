@@ -6,16 +6,7 @@ import { ProfileController } from '../controllers/profile.controllers';
 
 @Module({
   imports:[
-    MongooseModule.forFeatureAsync([
-      {
-        name: 'Profile',
-        useFactory: () => {
-          const schema = ProfileSchema;
-          schema.plugin(require('mongoose-autopopulate'));
-          return schema;
-        }
-      },
-    ])
+    MongooseModule.forFeature([{name: 'Profile', schema: ProfileSchema },])
   ],
   providers: [ProfileService],
   controllers:[ProfileController],

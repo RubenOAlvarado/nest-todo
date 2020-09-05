@@ -7,6 +7,7 @@ import { UsersModule } from 'src/users/users.module';
 import { ProfileModule } from 'src/profile/profile.module';
 import { PhotosModule } from 'src/photos/photos.module';
 import { AuthModule } from 'src/auth/auth.module';
+import { DestinationModule } from 'src/destination/destination.module';
 
 dotenv.config();
 
@@ -17,14 +18,14 @@ async function bootstrap() {
   app.setGlobalPrefix('api/v1');
 
   const options = new DocumentBuilder()
-                      .setTitle('Notes todo app')
-                      .setDescription('A documentation for notes')
+                      .setTitle('Demo API for crisenix app')
+                      .setDescription('Documentation for dummy crisenix services')
                       .setVersion('1.0')
-                      .addTag('Notes')
+                      .addTag('Demo')
                       .build();
 
   const appDocument = SwaggerModule.createDocument(app, options, {
-    include: [AuthModule, NoteModule, UsersModule, ProfileModule, PhotosModule]
+    include: [AuthModule, NoteModule, UsersModule, ProfileModule, PhotosModule, DestinationModule]
   });
 
   SwaggerModule.setup('api', app, appDocument);

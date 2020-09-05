@@ -10,16 +10,7 @@ import { UsersModule } from '../users/users.module';
   imports:[
     UsersModule,
     AuthModule,
-    MongooseModule.forFeatureAsync([
-      {
-        name: 'Photos',
-        useFactory: () => {
-          const schema = PhotosSchema;
-          schema.plugin(require('mongoose-autopopulate'));
-          return schema;
-        }
-      }
-    ]),
+    MongooseModule.forFeature([{name: 'Photos', schema:PhotosSchema}]),
   ],
   providers: [PhotosService],
   controllers: [PhotosController],
